@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konoba Bare | Pizza i peka | Prvić Šepurine</title>
+  <meta name="description" content="Konoba Bare na glavnom trgu Prvić Šepurina. Pizza iz pećnice, peka po narudžbi, kava i dalmatinska hrana. Otvoreno cijelu godinu.">
+  <meta name="keywords" content="konoba Bare Prvić, pizza Prvić Šepurine, peka narudžba, kafić Šepurine, restoran Prvić otok, konoba cijela godina">
+  <meta name="author" content="Konoba Bare">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="hr">
+  <meta property="og:title" content="Konoba Bare — Srce Šepurina">
+  <meta property="og:description" content="Pizza, peka i kava na trgu gdje Šepurine žive.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="hr_HR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="de_DE">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Konoba Bare",
+    "address": {"@type": "PostalAddress","streetAddress": "Trg 2","addressLocality": "Prvić Šepurine","addressCountry": "HR"},
+    "telephone": "+38522448094",
+    "servesCuisine": ["Dalmatian","Pizza","Croatian"],
+    "openingHours": "Mo Tu We Th Fr Sa Su 00:00-23:59",
+    "priceRange": "€€"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #130B04;
+      --bg2:    #1D1008;
+      --bg3:    #23130A;
+      --text:   #EFE0C6;
+      --gold:   #C9954A;
+      --dim:    rgba(239,224,198,0.48);
+      --border: rgba(201,149,74,0.15);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* FADE */
+    .fade { opacity: 0; transition: opacity 1.4s ease-in-out; }
+    .fade.visible { opacity: 1; }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0; z-index: 100;
+      height: 62px;
+      padding: 0 56px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .header-phone {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.38;
+      letter-spacing: 0.2px;
+    }
+    .header-phone:hover { opacity: 0.7; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 9px; }
+    .lang-sep { font-size: 0.68rem; color: var(--text); opacity: 0.18; }
+    .lang-btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      opacity: 0.35;
+      padding: 0;
+      letter-spacing: 0.5px;
+    }
+    .lang-btn.active { opacity: 1; color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 48px 64px;
+      background: radial-gradient(ellipse at 50% 30%, #2A1508 0%, var(--bg) 68%);
+    }
+
+    .hero-konoba {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      color: var(--dim);
+      letter-spacing: 5px;
+      margin-bottom: 6px;
+    }
+
+    .hero-bare {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: clamp(6.5rem, 17vw, 14rem);
+      color: var(--text);
+      line-height: 0.82;
+      margin-bottom: 36px;
+      letter-spacing: -2px;
+    }
+
+    .hero-tagline {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      margin-bottom: 44px;
+    }
+
+    /* BUTTONS */
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+    .btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      padding: 13px 26px;
+      border-radius: 2px;
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid transparent;
+      transition: all 0.22s;
+      white-space: nowrap;
+    }
+
+    .btn-primary { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-outline { background: transparent; color: var(--gold); border-color: rgba(201,149,74,0.42); }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,149,74,0.07); }
+
+    /* INTRO */
+    .intro {
+      padding: 104px 56px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .intro-pre {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.55;
+      margin-bottom: 32px;
+    }
+
+    .intro-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.7rem, 3.5vw, 2.9rem);
+      color: var(--text);
+      line-height: 1.55;
+      max-width: 800px;
+      margin: 0 auto 28px;
+    }
+
+    .intro-body {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--dim);
+      line-height: 1.9;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* DIVIDER */
+    .divider {
+      text-align: center;
+      padding: 0;
+      border: none;
+    }
+    .divider-line {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.25;
+      margin: 0 auto;
+    }
+
+    /* FOOD */
+    .food {
+      background: var(--bg2);
+      padding: 96px 56px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .food-inner { max-width: 820px; margin: 0 auto; }
+
+    .food-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 64px;
+      opacity: 0.8;
+    }
+
+    .food-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 20px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .food-item:first-of-type { border-top: 1px solid var(--border); }
+
+    .food-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.55rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .food-desc {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--dim);
+      line-height: 1.72;
+      max-width: 480px;
+    }
+
+    .food-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.6;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    /* PLACE */
+    .place {
+      padding: 100px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .place-label {
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.55;
+      margin-bottom: 28px;
+    }
+
+    .place-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.08rem, 1.9vw, 1.4rem);
+      color: var(--text);
+      line-height: 1.9;
+      opacity: 0.82;
+    }
+
+    .place-detail {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--dim);
+      letter-spacing: 0.3px;
+      line-height: 1.8;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--bg3);
+      padding: 88px 56px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .contact-line {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+
+    .contact-line a { color: inherit; text-decoration: none; }
+    .contact-line a:hover { color: var(--text); }
+
+    .contact-note {
+      font-size: 0.74rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.45;
+      margin-bottom: 40px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 56px;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--text);
+      opacity: 0.15;
+      border-top: 1px solid var(--border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      header { padding: 0 24px; }
+      .header-phone { display: none; }
+      .hero { padding: 64px 24px 52px; min-height: 72vh; }
+      .intro, .place { padding: 72px 24px; }
+      .food { padding: 72px 24px; }
+      .contact { padding: 64px 24px; }
+      footer { padding: 18px 24px; }
+      .food-item { grid-template-columns: 1fr; gap: 6px; }
+      .food-tag { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <span class="logo">Konoba Bare</span>
+  <div class="header-right">
+    <a href="tel:+38522448094" class="header-phone">+385 22 448 094</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="hr">HR</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">·</span>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="hero-konoba">Konoba</span>
+    <span class="hero-bare">Bare</span>
+    <p class="hero-tagline"
+       data-hr="Gdje se Šepurine skupi svake večeri."
+       data-en="Where Šepurine gathers every evening."
+       data-de="Wo sich Šepurine jeden Abend trifft.">Gdje se Šepurine skupi svake večeri.</p>
+    <div class="btns">
+      <a class="btn btn-primary" data-wa-type="stol"
+         data-hr="Rezerviraj stol" data-en="Reserve a table" data-de="Tisch reservieren"
+         href="#" target="_blank" rel="noopener">Rezerviraj stol</a>
+      <a class="btn btn-outline" data-wa-type="peka"
+         data-hr="Naruči peku" data-en="Order peka" data-de="Peka bestellen"
+         href="#" target="_blank" rel="noopener">Naruči peku</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <p class="intro-pre fade"
+     data-hr="Prvić Šepurine · od uvijek"
+     data-en="Prvić Šepurine · since always"
+     data-de="Prvić Šepurine · seit jeher">Prvić Šepurine · od uvijek</p>
+  <p class="intro-quote fade"
+     data-hr="&ldquo;Kada padne noć, trg postane dnevni boravak cijelog otoka.&rdquo;"
+     data-en="&ldquo;When night falls, the square becomes the living room of the whole island.&rdquo;"
+     data-de="&ldquo;Wenn die Nacht fällt, wird der Platz zum Wohnzimmer der ganzen Insel.&rdquo;">&ldquo;Kada padne noć, trg postane dnevni boravak cijelog otoka.&rdquo;</p>
+  <p class="intro-body fade"
+     data-hr="Konoba Bare stoji na glavnom trgu, ispred crkve Sv. Roka iz 1620. godine, okružena blijedosivim kamenom i plavim kapcima koji se nisu promijenili u četiri stoljeća. Nema automobila. Nema žurbe. Ima kave ujutro, ribe u podne i vina navečer."
+     data-en="Konoba Bare stands on the main square, in front of the Church of St. Roka from 1620, surrounded by pale grey stone and blue shutters unchanged in four centuries. No cars. No rush. There is coffee in the morning, fish at noon, and wine in the evening."
+     data-de="Die Konoba Bare steht auf dem Hauptplatz, vor der Kirche des Hl. Rochus aus dem Jahr 1620, umgeben von hellgrauem Stein und blauen Läden, die sich seit vier Jahrhunderten nicht verändert haben. Keine Autos. Keine Eile. Es gibt Kaffee morgens, Fisch mittags und Wein abends.">
+    Konoba Bare stoji na glavnom trgu, ispred crkve Sv. Roka iz 1620. godine, okružena blijedosivim kamenom i plavim kapcima koji se nisu promijenili u četiri stoljeća. Nema automobila. Nema žurbe. Ima kave ujutro, ribe u podne i vina navečer.</p>
+</section>
+
+<!-- FOOD -->
+<section class="food">
+  <div class="food-inner">
+    <p class="food-eyebrow fade"
+       data-hr="Što nudimo"
+       data-en="What we offer"
+       data-de="Unser Angebot">Što nudimo</p>
+
+    <div class="food-item fade">
+      <div>
+        <p class="food-name"
+           data-hr="Pizza iz pećnice"
+           data-en="Pizza from the oven"
+           data-de="Pizza aus dem Ofen">Pizza iz pećnice</p>
+        <p class="food-desc"
+           data-hr="Specijalitet kuće koji se priprema svaki dan. Tijesto se diže polako, peka ga ne žuri."
+           data-en="The house specialty, prepared every day. The dough rises slowly — there is no hurry here."
+           data-de="Die Hausspezialität, täglich zubereitet. Der Teig geht langsam auf — hier gibt es keine Eile.">Specijalitet kuće koji se priprema svaki dan. Tijesto se diže polako, peka ga ne žuri.</p>
+      </div>
+      <span class="food-tag"
+            data-hr="svaki dan"
+            data-en="every day"
+            data-de="täglich">svaki dan</span>
+    </div>
+
+    <div class="food-item fade">
+      <div>
+        <p class="food-name"
+           data-hr="Peka po narudžbi"
+           data-en="Peka on order"
+           data-de="Peka auf Bestellung">Peka po narudžbi</p>
+        <p class="food-desc"
+           data-hr="Meso ili hobotnica ispod peke — sat i pol pod žarom, polako, bez kompromisa. Naruči par dana unaprijed."
+           data-en="Meat or octopus under the peka bell — an hour and a half under the embers, slow and uncompromised. Order a few days ahead."
+           data-de="Fleisch oder Oktopus unter dem Peka-Deckel — anderthalb Stunden unter Glut, langsam und ohne Kompromisse. Ein paar Tage im Voraus bestellen.">Meso ili hobotnica ispod peke — sat i pol pod žarom, polako, bez kompromisa. Naruči par dana unaprijed.</p>
+      </div>
+      <span class="food-tag"
+            data-hr="narudžba"
+            data-en="on order"
+            data-de="auf Bestellung">narudžba</span>
+    </div>
+
+    <div class="food-item fade">
+      <div>
+        <p class="food-name"
+           data-hr="Dalmatinska predjela"
+           data-en="Dalmatian starters"
+           data-de="Dalmatinische Vorspeisen">Dalmatinska predjela</p>
+        <p class="food-desc"
+           data-hr="Pršut, sir, masline, slane srdele, hobotnica salata, calamari. Uz čašu bijelog na terasi."
+           data-en="Prosciutto, cheese, olives, salted sardines, octopus salad, calamari. With a glass of white on the terrace."
+           data-de="Prosciutto, Käse, Oliven, gesalzene Sardinen, Oktopussalat, Calamari. Mit einem Glas Weißwein auf der Terrasse.">Pršut, sir, masline, slane srdele, hobotnica salata, calamari. Uz čašu bijelog na terasi.</p>
+      </div>
+      <span class="food-tag"
+            data-hr="svaki dan"
+            data-en="every day"
+            data-de="täglich">svaki dan</span>
+    </div>
+
+    <div class="food-item fade">
+      <div>
+        <p class="food-name"
+           data-hr="Kava i piće"
+           data-en="Coffee &amp; drinks"
+           data-de="Kaffee &amp; Getränke">Kava i piće</p>
+        <p class="food-desc"
+           data-hr="Od prve jutarnje kave — kada brod koji donosi kruh tek pristane — do zadnjeg vina navečer."
+           data-en="From the first morning coffee — when the bread boat has just docked — to the last wine of the evening."
+           data-de="Vom ersten Morgenkaffee — wenn das Brotboot gerade angelegt hat — bis zum letzten Abendwein.">Od prve jutarnje kave — kada brod koji donosi kruh tek pristane — do zadnjeg vina navečer.</p>
+      </div>
+      <span class="food-tag"
+            data-hr="od jutra"
+            data-en="from morning"
+            data-de="ab früh">od jutra</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLACE -->
+<section class="place">
+  <p class="place-label fade"
+     data-hr="Otok Prvić"
+     data-en="Island Prvić"
+     data-de="Insel Prvić">Otok Prvić</p>
+  <p class="place-text fade"
+     data-hr="Kilometre od Vodica, bez jednog automobila. Kamene ulice, plavi kapci, crkva Sv. Roka iz 1620. Tu je i ljetnikovac Vrančić — istog Fausta koji je izumio padobran. Cijeli otok zaštićeno kulturno dobro."
+     data-en="A kilometre from Vodice, without a single car. Stone streets, blue shutters, the Church of St. Roka from 1620. Here too stands the Vrančić summer residence — the same Faust who invented the parachute. The entire island is a protected cultural monument."
+     data-de="Einen Kilometer von Vodice entfernt, ohne ein einziges Auto. Steinerne Gassen, blaue Läden, die Kirche des Hl. Rochus von 1620. Hier steht auch die Sommerresidenz der Vrančić — desselben Faust, der den Fallschirm erfand. Die gesamte Insel ist ein geschütztes Kulturdenkmal.">
+    Kilometre od Vodica, bez jednog automobila. Kamene ulice, plavi kapci, crkva Sv. Roka iz 1620. Tu je i ljetnikovac Vrančić — istog Fausta koji je izumio padobran. Cijeli otok zaštićeno kulturno dobro.</p>
+  <p class="place-detail fade"
+     data-hr="Trajekt iz Vodica · 15 minuta · svaki sat"
+     data-en="Ferry from Vodice · 15 minutes · every hour"
+     data-de="Fähre aus Vodice · 15 Minuten · stündlich">Trajekt iz Vodica · 15 minuta · svaki sat</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <p class="contact-title fade"
+     data-hr="Trg 2, Prvić Šepurine"
+     data-en="Trg 2, Prvić Šepurine"
+     data-de="Trg 2, Prvić Šepurine">Trg 2, Prvić Šepurine</p>
+  <p class="contact-line fade"
+     data-hr="<a href='tel:+38522448094'>+385 22 448 094</a>"
+     data-en="<a href='tel:+38522448094'>+385 22 448 094</a>"
+     data-de="<a href='tel:+38522448094'>+385 22 448 094</a>"><a href="tel:+38522448094">+385 22 448 094</a></p>
+  <p class="contact-line fade"
+     data-hr="Otvoreno cijelu godinu"
+     data-en="Open all year round"
+     data-de="Das ganze Jahr geöffnet">Otvoreno cijelu godinu</p>
+  <p class="contact-note fade"
+     data-hr="Peka i hobotnica naručuju se unaprijed"
+     data-en="Peka and octopus must be ordered in advance"
+     data-de="Peka und Oktopus müssen im Voraus bestellt werden">Peka i hobotnica naručuju se unaprijed</p>
+  <div class="btns fade">
+    <a class="btn btn-primary" data-wa-type="stol"
+       data-hr="Rezerviraj stol" data-en="Reserve a table" data-de="Tisch reservieren"
+       href="#" target="_blank" rel="noopener">Rezerviraj stol</a>
+    <a class="btn btn-outline" data-wa-type="peka"
+       data-hr="Naruči peku" data-en="Order peka" data-de="Peka bestellen"
+       href="#" target="_blank" rel="noopener">Naruči peku</a>
+  </div>
+</section>
+
+<footer>
+  <span data-hr="© 2026 Konoba Bare · Prvić Šepurine"
+        data-en="© 2026 Konoba Bare · Prvić Šepurine"
+        data-de="© 2026 Konoba Bare · Prvić Šepurine">© 2026 Konoba Bare · Prvić Šepurine</span>
+</footer>
+
+<script>
+  const WA = '38522448094';
+  const WA_MSG = {
+    stol: {
+      hr: 'Pozdrav, želim rezervirati stol u Konoba Bare.',
+      en: "Hello, I'd like to reserve a table at Konoba Bare.",
+      de: 'Hallo, ich möchte einen Tisch in der Konoba Bare reservieren.'
+    },
+    peka: {
+      hr: 'Pozdrav, zanima me narudžba peke u Konoba Bare.',
+      en: "Hello, I'd like to order peka at Konoba Bare.",
+      de: 'Hallo, ich möchte Peka in der Konoba Bare bestellen.'
+    }
+  };
+
+  let lang = 'hr';
+  const langBtns = document.querySelectorAll('.lang-btn');
+
+  function setLang(l) {
+    lang = l;
+    langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-hr]').forEach(el => {
+      const v = el.dataset[l];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-wa-type]').forEach(btn => {
+      const msg = WA_MSG[btn.dataset.waType][l] || WA_MSG[btn.dataset.waType].hr;
+      btn.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    });
+  }
+
+  langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang('hr');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
